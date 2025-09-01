@@ -1,0 +1,161 @@
+/* ========================
+   RESET & BASE STYLE
+======================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #0d0d0d;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* ========================
+   HEADER
+======================== */
+header {
+  background: #1e1e1e;
+  padding: 18px 20px;
+  text-align: center;
+  border-bottom: 2px solid #2a2a2a;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+header h1 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #f8d210;
+  letter-spacing: 1px;
+}
+
+/*   GAME CONTAINER
+ */
+.bc-container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 15px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 30px auto;
+  padding: 0 15px;
+}
+
+/* CARD STYLE */
+.bc-content {
+  background: #1c1c1c;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+}
+
+.bc-content:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.8);
+}
+
+/* IMAGE */
+.bc-content img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 2px solid #2a2a2a;
+}
+
+/* INFO BADGE */
+.bc-content div {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 6px 12px;
+  border-radius: 25px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.bc-content div i {
+  color: #f8d210;
+  font-size: 14px;
+}
+.bc-content div span {
+  font-weight: 600;
+}
+
+/* ========================
+   PAGINATION
+======================== */
+.pagination {
+  margin: 25px 0 40px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #1e1e1e;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.pagination button:hover {
+  background: #f8d210;
+  color: #000;
+  transform: translateY(-2px);
+}
+
+.pagination button.active {
+  background: #f8d210;
+  color: #000;
+  font-weight: bold;
+  box-shadow: 0 3px 8px rgba(248, 210, 16, 0.5);
+}
+
+
+
+/* Laptop & Tablet Large */
+@media (max-width: 1200px) {
+  .bc-container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* Tablet View - 4 cards per row */
+@media (max-width: 992px) {
+  .bc-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .bc-content img {
+    height: 100%;
+  }
+}
+
+/* Mobile View - 2 cards per row */
+@media (max-width: 600px) {
+  .bc-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .bc-content img {
+    height: 100%;
+  }
+  .bc-content div {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+}
