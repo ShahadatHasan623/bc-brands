@@ -24,6 +24,7 @@ header {
   border-bottom: 2px solid #2a2a2a;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
+
 header h1 {
   font-size: 26px;
   font-weight: 600;
@@ -31,8 +32,9 @@ header h1 {
   letter-spacing: 1px;
 }
 
-/*   GAME CONTAINER
- */
+/* ========================
+   GAME CONTAINER
+======================== */
 .bc-container {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
@@ -43,67 +45,111 @@ header h1 {
   padding: 0 15px;
 }
 
-/* CARD STYLE */
+/* ========================
+   CARD STYLE
+======================== */
 .bc-content {
-  background: #1c1c1c;
   border-radius: 12px;
   overflow: hidden;
   position: relative;
   transition: all 0.3s ease;
   cursor: pointer;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+  background: transparent;
 }
 
-/* Hover Effect */
-.bc-content:hover {
-  animation: cardHover 0.5s ease forwards;
-}
-
-/* Keyframes Animation */
-@keyframes cardHover {
-  0% {
-    transform: scale(1) translateY(0);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
-  }
-  50% {
-    transform: scale(1.07) translateY(-8px);
-    box-shadow: 0 6px 20px rgba(248, 210, 16, 0.6);
-  }
-  100% {
-    transform: scale(1.03) translateY(-5px);
-    box-shadow: 0 6px 15px rgba(248, 210, 16, 0.4);
-  }
-}
 /* IMAGE */
 .bc-content img {
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
   display: block;
-  border-bottom: 2px solid #2a2a2a;
+  border-radius: 12px;
+  transition: filter 0.3s ease;
 }
 
-/* INFO BADGE */
-.bc-content div {
-  position: absolute;
-  bottom: 12px;
+/* USER BADGE WITH GLASS EFFECT */
+.user-badge {
+  position: absolute;        /* stays inside the card */
+  bottom: 12px;              /* bottom right */
   right: 12px;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 6px 12px;
-  border-radius: 25px;
-  font-size: 14px;
   display: flex;
   align-items: center;
   gap: 6px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  padding: 4px 10px;
+  border-radius: 20px;
+
+  /* Glass effect */
+  background: rgba(17, 17, 17, 0.2); 
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(248, 210, 16, 0.3);
+
+  z-index: 10;            
 }
 
-.bc-content div i {
+.user-badge i {
   color: #f8d210;
   font-size: 14px;
 }
-.bc-content div span {
+
+.user-badge span {
   font-weight: 600;
+  background: #f8d210; /* number background */
+  color: #000;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+/* PLAY BUTTON OVERLAY */
+.bc-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+}
+
+.bc-overlay h3 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  position: absolute;
+  top: 12px;
+  text-align: center;
+  width: 100%;
+  letter-spacing: 1px;
+}
+
+.bc-overlay button {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.bc-content:hover img {
+  filter: brightness(50%);
+}
+
+.bc-content:hover .bc-overlay {
+  opacity: 1;
+}
+
+.bc-overlay button:hover {
+  transform: scale(1.1);
 }
 
 /* ========================
@@ -141,16 +187,16 @@ header h1 {
   box-shadow: 0 3px 8px rgba(248, 210, 16, 0.5);
 }
 
-
-
-/* Laptop & Tablet Large */
+/* ========================
+   RESPONSIVE GRID
+======================== */
 @media (max-width: 1200px) {
   .bc-container {
     grid-template-columns: repeat(6, 1fr);
   }
+  
 }
 
-/* Tablet View - 4 cards per row */
 @media (max-width: 992px) {
   .bc-container {
     grid-template-columns: repeat(4, 1fr);
@@ -160,17 +206,23 @@ header h1 {
   }
 }
 
-/* Mobile View - 2 cards per row */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .bc-container {
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bc-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
   .bc-content img {
-    height: 100%;
+    height: 150px;
   }
-  .bc-content div {
-    font-size: 12px;
-    padding: 4px 10px;
+  .user-badge {
+    bottom: 8px;
+    right: 8px;
+    padding: 3px 8px;
   }
 }
