@@ -76,7 +76,7 @@ header h1 {
   border-radius: 5px;
 
   /* Glass effect */
-  background: rgba(8, 8, 8, 0.479); 
+  background: rgba(8, 8, 8, 0.274); 
   z-index: 10;            
 }
 
@@ -213,6 +213,5 @@ header h1 {
   .user-badge {
     bottom: 4px;
     right: 4px;
-    padding: 2px 4px;
   }
 }
