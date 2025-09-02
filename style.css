@@ -54,11 +54,26 @@ header h1 {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
 }
 
+/* Hover Effect */
 .bc-content:hover {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.8);
+  animation: cardHover 0.5s ease forwards;
 }
 
+/* Keyframes Animation */
+@keyframes cardHover {
+  0% {
+    transform: scale(1) translateY(0);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+  }
+  50% {
+    transform: scale(1.07) translateY(-8px);
+    box-shadow: 0 6px 20px rgba(248, 210, 16, 0.6);
+  }
+  100% {
+    transform: scale(1.03) translateY(-5px);
+    box-shadow: 0 6px 15px rgba(248, 210, 16, 0.4);
+  }
+}
 /* IMAGE */
 .bc-content img {
   width: 100%;
