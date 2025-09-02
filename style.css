@@ -59,7 +59,6 @@ header h1 {
 .bc-content img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   display: block;
   border-radius: 12px;
   transition: filter 0.3s ease;
@@ -68,29 +67,27 @@ header h1 {
 /* USER BADGE WITH GLASS EFFECT */
 .user-badge {
   position: absolute;       
-  bottom: 12px;            
-  right: 12px;
+  bottom: 5px;            
+  right: 5px;
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 10px;
-  border-radius: 20px;
+  padding: 0px 4px;
+  border-radius: 5px;
 
   /* Glass effect */
-  background: rgba(8, 8, 8, 0.63); 
-
+  background: rgba(8, 8, 8, 0.479); 
   z-index: 10;            
 }
 
 .user-badge i {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .user-badge span {
-  font-weight: 600;
+  font-weight: 500;
   color: #fff;
-  padding: 2px 8px;
-  border-radius: 12px;
+  border-radius: 8px;
 }
 
 /* PLAY BUTTON OVERLAY */
@@ -211,11 +208,11 @@ header h1 {
     gap: 10px;
   }
   .bc-content img {
-    height: 150px;
+    height: 100%;
   }
   .user-badge {
-    bottom: 8px;
-    right: 8px;
-    padding: 3px 8px;
+    bottom: 4px;
+    right: 4px;
+    padding: 2px 4px;
   }
 }
